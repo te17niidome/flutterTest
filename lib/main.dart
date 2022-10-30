@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Welcome to Flutter',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -27,9 +28,11 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Welcom to Flutter'),
+          title: Text('Welcome to Flutter'),
         ),
-        body: Center(child: Text('Hello world')),
+        body: Center(
+          child: RandomWords(),
+        ),
       ),
     );
   }
@@ -118,4 +121,17 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+class RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState() => new RandomWordsState();
 }
